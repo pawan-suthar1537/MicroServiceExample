@@ -1,0 +1,28 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"npm run start:gateway\" \"npm run start:post_microservice\" \"npm run start:auth_microservice\"",
+    "start:gateway": "nodemon server.js",
+    "start:post_microservice": "cd ../post_micro && npm run dev",
+    "start:auth_microservice": "cd ../auth_micro && npm run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "express-http-proxy": "^2.1.1",
+    "http-proxy-middleware": "^3.0.3",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

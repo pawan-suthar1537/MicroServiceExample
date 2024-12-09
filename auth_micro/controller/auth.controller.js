@@ -12,11 +12,11 @@ export const Register = async (req, res) => {
       });
     }
 
-    const isexist = await User.findOne({ email });
-    if (isexist) {
+    const is_exist = await User.findOne({ email });
+    if (is_exist) {
       return res.status(400).json({
         status: "fail",
-        message: "User already exist",
+        message: `User already exist with email ${email}`,
       });
     }
 

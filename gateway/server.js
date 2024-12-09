@@ -7,12 +7,10 @@ app.get("/", (req, res) => {
   res.send("Welcome to the Gateway!");
 });
 
-// Proxy for /api/auth to auth microservice (running on port 3001)
 app.use("/api/auth", expressproxy("http://localhost:3001"));
 
 app.use("/api/post", expressproxy("http://localhost:3002"));
 
-// Start the gateway server
 app.listen(PORT, () => {
   console.log(`Gateway is running on http://localhost:${PORT}`);
 });
